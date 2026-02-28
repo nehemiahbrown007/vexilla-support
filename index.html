@@ -3,191 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vexilla - Autonomous AI IT Support | Enterprise & HomeBase</title>
+    
+    <title>Vexilla | Autonomous AI IT Support</title>
+    <meta name="description" content="Vexilla is the world's first self-healing IT infrastructure for Enterprise and Home users.">
+    
     <style>
-        /* CORE CSS - VEXILLA BRAND PALETTE */
         :root {
-            --bg-black: #000000;          /* Pure Solid Black */
-            --vexilla-blue: #007bff;      /* Primary Vexilla Blue */
-            --vexilla-cyan: #00f2fe;      /* Accent Cyan */
-            --text-main: #e0e0e0;         
-            --text-muted: #a0a0a0;        
-            --white: #ffffff;
-            --font-stack: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --bg-black: #000000;
+            --card-bg: #0a0a0a;
+            --vex-blue: #007bff;
+            --vex-cyan: #00f2fe;
+            --text-main: #f8f9fa;
+            --text-dim: #a0a0a0;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        /* RESET & LAYOUT */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
             background-color: var(--bg-black);
             color: var(--text-main);
-            font-family: var(--font-stack);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* THE HERO CONTAINER */
-        .vexilla-hero {
+        /* NAVIGATION BAR */
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #111;
+        }
+
+        .nav-logo-text { font-weight: 800; letter-spacing: 2px; color: var(--vex-blue); }
+
+        /* HERO SECTION */
+        .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            padding: 40px 20px;
+            min-height: 85vh;
+            padding: 60px 20px;
             text-align: center;
         }
 
-        /* LOGO STYLING */
         .hero-logo {
-            max-width: 350px; 
+            width: 100%;
+            max-width: 400px;
             height: auto;
-            margin-bottom: 30px;
-            /* No glow here to keep the "solid black" look clean */
+            margin-bottom: 40px;
+            filter: drop-shadow(0 0 20px rgba(0, 123, 255, 0.2));
         }
 
-        /* HEADLINE & SUBHEAD */
-        .hero-content {
-            max-width: 850px;
-            margin-bottom: 50px;
-        }
-
-        .hero-headline {
-            font-size: 3.5rem;
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
-            color: var(--white);
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 70%, var(--vexilla-blue));
+            background: linear-gradient(to bottom, #ffffff, #888888);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-subhead {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto;
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin-bottom: 50px;
         }
 
-        /* THE TWO-PATH FORK */
-        .hero-fork {
-            display: flex;
-            gap: 25px;
+        /* THE CHOICE CARDS */
+        .choice-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
             width: 100%;
-            max-width: 900px;
-            justify-content: center;
+            max-width: 1100px;
         }
 
-        .fork-card {
-            background: #111111; /* Slightly lighter than pure black for contrast */
-            border: 1px solid #222222;
-            border-radius: 12px;
-            padding: 40px;
-            flex: 1;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #1a1a1a;
+            padding: 50px;
+            border-radius: 20px;
             text-align: left;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
-        .fork-card:hover {
-            border-color: var(--vexilla-blue);
-            transform: translateY(-5px);
+        .card:hover {
+            border-color: var(--vex-blue);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .fork-card h3 {
-            font-size: 1.5rem;
-            color: var(--white);
-            margin-bottom: 15px;
-        }
+        .card h2 { font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
+        .card p { font-size: 1rem; color: var(--text-dim); margin-bottom: 35px; min-height: 60px; }
 
-        .fork-card p {
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            font-size: 0.95rem;
-        }
-
-        /* BUTTONS */
-        .vexilla-btn {
+        .btn {
             display: inline-block;
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-weight: 600;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 700;
             text-decoration: none;
-            transition: 0.2s;
+            transition: var(--transition);
         }
 
-        .btn-enterprise {
-            background-color: var(--vexilla-blue);
-            color: var(--white);
-        }
+        .btn-primary { background: var(--vex-blue); color: #fff; }
+        .btn-primary:hover { background: #0056b3; }
 
-        .btn-homebase {
-            border: 1px solid var(--text-muted);
-            color: var(--white);
-        }
+        .btn-outline { border: 1px solid #333; color: #fff; }
+        .btn-outline:hover { border-color: var(--vex-cyan); color: var(--vex-cyan); }
 
-        .btn-homebase:hover {
-            border-color: var(--vexilla-cyan);
-            color: var(--vexilla-cyan);
-        }
-
-        /* STATUS INDICATOR */
-        .network-status {
-            margin-top: 50px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* FOOTER / STATUS */
+        .footer {
+            padding: 40px;
+            text-align: center;
             font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             color: #444;
         }
 
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #00ff00;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #00ff00;
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #111;
+            padding: 5px 15px;
+            border-radius: 50px;
+            border: 1px solid #222;
         }
 
-        @media (max-width: 768px) {
-            .hero-headline { font-size: 2.2rem; }
-            .hero-fork { flex-direction: column; }
+        .dot { width: 8px; height: 8px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            .card { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <section class="vexilla-hero">
-        
-        <img src="vexilla%20Logo.png" alt="Vexilla Logo" class="hero-logo">
+    <nav>
+        <div class="nav-logo-text">VEXILLA</div>
+        <div class="status-pill"><div class="dot"></div> Core AI Active</div>
+    </nav>
 
-        <div class="hero-content">
-            <h1 class="hero-headline">Autonomous IT Support.</h1>
-            <p class="hero-subhead">
-                Predicting and resolving system issues before they disrupt your day. Powered by Vexilla Core AI.
-            </p>
-        </div>
+    <main class="hero">
+        <img src="vexilla%20Logo.png" alt="Vexilla Autonomous AI Support Logo" class="hero-logo">
 
-        <div class="hero-fork">
-            <div class="fork-card">
-                <h3>Enterprise</h3>
-                <p>Full-fleet autonomous administration, silent fixes, and predictive hardware diagnostics for businesses.</p>
-                <a href="#" class="vexilla-btn btn-enterprise">Launch Enterprise</a>
+        <h1>One Admin. Zero Downtime.</h1>
+        <p>The first autonomous site reliability engine for your business and home. Predicting failures, fixing errors, and securing your network in real-time.</p>
+
+        <div class="choice-container">
+            <div class="card">
+                <h2>Enterprise</h2>
+                <p>Full-fleet management for IT departments. Silent AI fixes, hardware ordering, and compliance logs.</p>
+                <a href="#" class="btn btn-primary">Secure My Business</a>
             </div>
 
-            <div class="fork-card">
-                <h3>HomeBase</h3>
-                <p>Personal digital protection for your home PC or Mac. One-click optimizations for everyday users.</p>
-                <a href="#" class="vexilla-btn btn-homebase">Protect Home</a>
+            <div class="card">
+                <h2>HomeBase</h2>
+                <p>Your personal AI digital handyman. One-click optimizations for families and remote professionals.</p>
+                <a href="#" class="btn btn-outline">Protect My Home</a>
             </div>
         </div>
+    </main>
 
-        <div class="network-status">
-            <div class="status-dot"></div>
-            <span>System Status: Optimal</span>
-        </div>
-
-    </section>
+    <footer class="footer">
+        &copy; 2026 Global Citizen Joe, LLC. All rights reserved. Vexilla is a registered DBA.
+    </footer>
 
 </body>
 </html>
