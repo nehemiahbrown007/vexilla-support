@@ -49,12 +49,27 @@
             100% { transform: translate(15%, 15%) scale(1.1); }
         }
 
+        /* STICKY NAV */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-logo { font-weight: 900; letter-spacing: 2px; color: #fff; font-size: 1.2rem; }
+
         /* HERO AREA */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 120px 24px 80px;
+            padding: 180px 24px 80px;
             text-align: center;
         }
 
@@ -64,14 +79,7 @@
             height: auto;
             margin-bottom: 40px;
             transition: var(--transition);
-            cursor: pointer;
-            filter: drop-shadow(0 0 0px transparent);
-            background: transparent !important;
-        }
-
-        .hero-logo:hover {
-            transform: scale(1.02);
-            filter: drop-shadow(0 0 30px rgba(0, 123, 255, 0.3));
+            filter: drop-shadow(0 0 15px rgba(0, 123, 255, 0.2));
         }
 
         .hero h1 {
@@ -84,12 +92,19 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-dim);
-            max-width: 750px;
-            margin-bottom: 50px;
+        /* LOGO BAR (TRUST) */
+        .logo-bar {
+            padding: 40px;
+            text-align: center;
+            opacity: 0.5;
+            filter: grayscale(1);
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
         }
+        .logo-bar span { font-weight: 800; color: #555; font-size: 0.9rem; letter-spacing: 2px; }
 
         /* MAIN SELECTION CARDS */
         .container {
@@ -104,7 +119,6 @@
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 32px;
             padding: 60px 45px;
@@ -114,11 +128,7 @@
             justify-content: space-between;
         }
 
-        .glass-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--vex-blue);
-            background: rgba(255, 255, 255, 0.05);
-        }
+        .glass-card:hover { border-color: var(--vex-blue); transform: translateY(-10px); }
 
         .tag {
             font-size: 0.7rem;
@@ -130,8 +140,6 @@
             display: block;
         }
 
-        .glass-card h2 { font-size: 2.5rem; margin-bottom: 15px; color: #fff; letter-spacing: -1px; }
-
         /* BUTTONS */
         .btn {
             display: block;
@@ -140,7 +148,6 @@
             text-align: center;
             border-radius: 16px;
             font-weight: 800;
-            font-size: 1.1rem;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -150,84 +157,36 @@
             border: none;
         }
 
-        .btn-primary { 
-            background: var(--vex-blue); 
-            color: #ffffff !important;
-            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
-        }
-        .btn-primary:hover { 
-            background: #ffffff; 
-            color: #000000 !important;
-            box-shadow: 0 0 40px #ffffff;
-        }
+        .btn-primary { background: var(--vex-blue); color: #fff; }
+        .btn-primary:hover { background: #fff; color: #000; box-shadow: 0 0 30px #fff; }
 
-        .btn-outline { 
-            border: 2px solid var(--vex-cyan); 
-            color: #ffffff !important;
-            background: transparent;
-        }
-        .btn-outline:hover { 
-            background: var(--vex-cyan);
-            color: #000000 !important;
-            box-shadow: 0 0 30px var(--vex-cyan);
-        }
-
-        /* ENTERPRISE DEEP DIVE */
-        .enterprise-detail {
+        /* ROADMAP SECTION */
+        .roadmap {
             max-width: 1200px;
-            margin: 150px auto 50px;
-            padding: 100px 24px;
-            border-top: 1px solid var(--glass-border);
-            scroll-margin-top: 50px;
+            margin: 150px auto;
+            padding: 0 24px;
         }
 
-        .detail-grid {
+        .roadmap-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
         }
 
-        .detail-item {
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.015);
-            border-radius: 24px;
-            border-top: 2px solid var(--vex-blue);
-        }
-
-        .detail-item h3 { color: #fff; margin-bottom: 15px; font-size: 1.5rem; }
-        .detail-item p { color: var(--text-dim); font-size: 1rem; line-height: 1.8; }
-
-        .tech-specs {
-            margin-top: 60px;
-            background: linear-gradient(to right, rgba(0, 123, 255, 0.05), transparent);
-            padding: 50px;
-            border-radius: 24px;
-            border: 1px solid var(--glass-border);
-        }
-
-        .spec-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            list-style: none;
-            margin-top: 30px;
-        }
-
-        .spec-tag {
-            background: #0a0a0a;
-            padding: 10px 20px;
-            border-radius: 100px;
+        .roadmap-item {
+            padding: 30px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 20px;
             border: 1px solid #222;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: var(--vex-cyan);
         }
 
-        /* STRATEGIC IMPACT SECTION */
+        .roadmap-item h4 { color: var(--vex-cyan); margin-bottom: 10px; }
+
+        /* IMPACT STATS */
         .impact-section {
             max-width: 1200px;
-            margin: 0 auto 150px;
+            margin: 100px auto;
             padding: 80px 40px;
             background: linear-gradient(135deg, rgba(0, 123, 255, 0.08) 0%, transparent 100%);
             border-radius: 40px;
@@ -237,249 +196,151 @@
             align-items: center;
         }
 
-        .impact-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+        .impact-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { padding: 30px; background: rgba(255,255,255,0.03); border-radius: 24px; text-align: center; border: 1px solid var(--glass-border); }
+        .stat-card h5 { color: var(--vex-cyan); font-size: 2.2rem; }
 
-        .stat-card {
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .stat-card:hover { border-color: var(--vex-cyan); transform: scale(1.05); }
+        /* HOMEBASE VISUAL */
+        .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 100px auto; padding: 0 24px;}
+        .home-visual { background: var(--glass-bg); padding: 40px; border-radius: 24px; text-align: center; border: 1px solid var(--glass-border); }
 
-        .stat-card h5 { color: var(--vex-cyan); font-size: 2.2rem; margin-bottom: 5px; font-weight: 800; }
-        .stat-card p { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; }
+        .status-footer { text-align: center; padding: 100px 20px; font-size: 0.7rem; color: #444; letter-spacing: 3px; border-top: 1px solid #111; }
 
-        /* HOMEBASE DEEP DIVE */
-        .homebase-detail {
-            max-width: 1200px;
-            margin: 100px auto 150px;
-            padding: 80px 24px;
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 242, 254, 0.03) 100%);
-            border-radius: 40px;
-            scroll-margin-top: 50px;
-        }
-
-        .home-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-top: 40px;
-        }
-
-        .feature-item {
-            margin-bottom: 30px;
-            padding-left: 20px;
-            border-left: 2px solid var(--vex-cyan);
-        }
-
-        .feature-item h4 { color: #fff; font-size: 1.3rem; margin-bottom: 8px; }
-        .feature-item p { color: var(--text-dim); font-size: 0.95rem; }
-
-        .home-visual {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 0 50px rgba(0, 242, 254, 0.05);
-        }
-
-        /* FAQ */
-        .faq-section { max-width: 900px; margin: 0 auto 150px; padding: 0 24px; }
-        .faq-item {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 35px;
-            margin-bottom: 25px;
-        }
-        .faq-item h4 { font-size: 1.2rem; color: #fff; margin-bottom: 12px; display: flex; gap: 12px; }
-        .faq-item h4::before { content: 'Q:'; color: var(--vex-cyan); font-weight: 900; }
-
-        .status-footer {
-            text-align: center;
-            padding: 100px 20px;
-            font-size: 0.7rem;
-            color: #444;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            border-top: 1px solid #111;
-        }
-
-        @media (max-width: 992px) {
-            .impact-section, .home-grid { grid-template-columns: 1fr; text-align: center; }
-        }
+        @media (max-width: 992px) { .impact-section, .home-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
+    <nav>
+        <div class="nav-logo">VEXILLA</div>
+        <a href="mailto:invest@vexilla.ai" class="btn-primary" style="padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 0.8rem;">REQUEST PITCH DECK</a>
+    </nav>
+
     <div class="mesh-bg">
         <div class="orb" style="top: 10%; left: -5%;"></div>
-        <div class="orb" style="bottom: 5%; right: -5%; animation-delay: -5s;"></div>
+        <div class="orb" style="bottom: 5%; right: -5%;"></div>
     </div>
 
     <main class="hero">
         <img src="vexilla%20Logo.png" alt="Vexilla Logo" class="hero-logo">
         <h1>Autonomous IT Intelligence.</h1>
-        <p>A distributed self-healing agent architecture that transforms reactive IT support into an automated, mission-critical asset.</p>
+        <p style="color: var(--text-dim); max-width: 700px; font-size: 1.2rem;">The world’s first self-healing infrastructure agent built for $1B scale. We don't fix tickets. We eliminate them.</p>
     </main>
+
+    <div class="logo-bar">
+        <span>COMPATIBLE WITH:</span>
+        <span>AZURE AD</span>
+        <span>AWS CLOUD</span>
+        <span>CROWDSTRIKE</span>
+        <span>SERVICENOW</span>
+    </div>
 
     <div class="container">
         <div class="glass-card">
             <div>
                 <span class="tag">Fleet Command</span>
                 <h2>Enterprise</h2>
-                <p>Global endpoint management with autonomous remediation, predictive procurement, and Zero-Trust JIT security.</p>
+                <p>Global endpoint management with autonomous remediation and Predictive Logistics.</p>
             </div>
-            <a href="#enterprise-deep-dive" class="btn btn-primary">Secure My Business</a>
+            <a href="#enterprise" class="btn btn-primary">Enterprise Deep Dive</a>
         </div>
 
         <div class="glass-card">
             <div>
                 <span class="tag">Digital Home</span>
                 <h2>HomeBase</h2>
-                <p>Enterprise-grade stability for the remote workforce and modern families. Total health transparency and optimization.</p>
+                <p>Consumer-grade system stability for remote professionals and modern families.</p>
             </div>
-            <a href="#homebase-deep-dive" class="btn btn-outline">Protect My Home</a>
+            <a href="#homebase" class="btn btn-outline" style="border: 2px solid var(--vex-cyan); color:#fff; text-decoration:none;">Explore HomeBase</a>
         </div>
     </div>
 
     
-    <section id="enterprise-deep-dive" class="enterprise-detail">
-        <div style="text-align: center;">
-            <span class="tag">Technical Architecture</span>
-            <h2 style="font-size: 3rem; margin: 20px 0; letter-spacing: -1px;">The Vexilla Enterprise Engine</h2>
-            <p style="max-width: 850px; margin: 0 auto; color: var(--text-dim); font-size: 1.25rem;">
-                Replacing the legacy helpdesk with local intelligence. Our agents fix problems at the source, not the server.
-            </p>
-        </div>
-
-        <div class="detail-grid">
-            <div class="detail-item">
-                <h3>Autonomous SRE Agents</h3>
-                <p>Built on <strong>Rust</strong> for memory safety. Agents execute sub-millisecond remediations for registry drift and service failures without needing cloud-connectivity for decision-making.</p>
+    <section id="enterprise" style="max-width: 1200px; margin: 150px auto; padding: 0 24px;">
+        <span class="tag">The Engine</span>
+        <h2 style="font-size: 3rem; margin-bottom: 40px;">Self-Healing Architecture.</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+            <div class="stat-card" style="text-align: left;">
+                <h4>Rust-Core Agents</h4>
+                <p style="color: var(--text-dim); margin-top: 10px;">Zero-latency, memory-safe execution on the edge. Vexilla identifies and repairs system drift in milliseconds.</p>
             </div>
-
-            <div class="detail-item">
-                <h3>Predictive Logistics</h3>
-                <p>Using thermal telemetry and SSD wear-leveling data, Vexilla predicts hardware failure weeks in advance, automatically initiating procurement tickets for zero-downtime swaps.</p>
+            <div class="stat-card" style="text-align: left;">
+                <h4>Predictive Procurement</h4>
+                <p style="color: var(--text-dim); margin-top: 10px;">Proprietary thermal and SSD wear-leveling models predict hardware failure before the user notices a lag.</p>
             </div>
-
-            <div class="detail-item">
-                <h3>JIT Elevation (Zero-Trust)</h3>
-                <p>AI-driven remediation with minimal risk. Administrative rights are granted for specific signed scripts only during the fix window, then instantly revoked and audited.</p>
+            <div class="stat-card" style="text-align: left;">
+                <h4>Zero-Trust JIT</h4>
+                <p style="color: var(--text-dim); margin-top: 10px;">Administrative elevation is granted only for the duration of the autonomous fix, then instantly revoked.</p>
             </div>
-        </div>
-
-        <div class="tech-specs">
-            <h3 style="margin-bottom: 10px;">Enterprise Stack Compatibility</h3>
-            <p style="color: var(--text-dim);">Seamless integration with Entra ID, Azure, AWS, and GCP.</p>
-            <ul class="spec-list">
-                <li class="spec-tag">SOC 2 Type II Certified</li>
-                <li class="spec-tag">REST API v2.0</li>
-                <li class="spec-tag">Rust-Safe Memory Engine</li>
-                <li class="spec-tag">Post-Quantum Encryption</li>
-            </ul>
         </div>
     </section>
 
     <section class="impact-section">
         <div>
-            <span class="tag">Security & ROI</span>
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #fff;">Edge-Native Privacy.</h2>
-            <p style="color: var(--text-dim); margin-bottom: 25px; font-size: 1.1rem;">Vexilla processes all sensitive system data <strong>on the device</strong>. We provide intelligence to the administrator without ever moving your private data to the cloud.</p>
+            <span class="tag">ROI & EXIT</span>
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">The $1B Opportunity.</h2>
+            <p style="color: var(--text-dim); margin-bottom: 25px;">Vexilla turns IT from a cost-center into a strategic asset. By reducing L1 support tickets by 85%, we unlock massive operational efficiency for the Fortune 500.</p>
             <ul style="color: var(--vex-cyan); list-style: none; font-weight: 700; line-height: 2;">
-                <li>✓ 100% HIPAA & GDPR Compliance</li>
-                <li>✓ Zero-Knowledge Architecture</li>
-                <li>✓ Immutable Global Audit Logs</li>
+                <li>✓ HIPAA / GDPR / SOC 2 Ready</li>
+                <li>✓ Targeted Acquisition by Microsoft/CrowdStrike</li>
+                <li>✓ Massive Scalability via B2C HomeBase</li>
             </ul>
         </div>
-
         <div class="impact-stats">
-            <div class="stat-card">
-                <h5>85%</h5>
-                <p>Ticket Reduction</p>
-            </div>
-            <div class="stat-card">
-                <h5>< 4s</h5>
-                <p>Repair Time</p>
-            </div>
-            <div class="stat-card">
-                <h5>30%</h5>
-                <p>Hardware ROI</p>
-            </div>
-            <div class="stat-card">
-                <h5>$0</h5>
-                <p>L1 Support Cost</p>
-            </div>
+            <div class="stat-card"><h5>85%</h5><p>TICKET REDUCTION</p></div>
+            <div class="stat-card"><h5>< 4s</h5><p>FIX TIME</p></div>
+            <div class="stat-card"><h5>30%</h5><p>HARDWARE ROI</p></div>
+            <div class="stat-card"><h5>30X</h5><p>EXIT POTENTIAL</p></div>
         </div>
     </section>
 
     
-    <section id="homebase-deep-dive" class="homebase-detail">
-        <div style="text-align: center;">
-            <span class="tag" style="color: var(--vex-cyan);">Consumer Intelligence</span>
-            <h2 style="font-size: 3rem; color: #fff;">Vexilla HomeBase</h2>
-            <p style="max-width: 700px; margin: 20px auto; color: var(--text-dim); font-size: 1.2rem;">
-                Professional-grade system stability, simplified for the modern home and remote professional. 
-            </p>
-        </div>
-
-        <div class="home-grid">
-            <div class="home-visual">
-                <h3 style="color: var(--vex-cyan); margin-bottom: 20px;">Live Health Score</h3>
-                <div style="font-size: 5rem; font-weight: 900; color: #fff; margin-bottom: 10px;">98</div>
-                <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--vex-cyan); font-size: 0.8rem;">Optimal System State</p>
-                <div style="margin-top: 30px; height: 8px; background: #222; border-radius: 10px; overflow: hidden;">
-                    <div style="width: 98%; height: 100%; background: var(--vex-cyan);"></div>
-                </div>
-                <p style="margin-top: 20px; font-size: 0.85rem; color: var(--text-dim);">3 Silent Fixes Applied Today</p>
+    <section id="homebase" class="home-grid">
+        <div class="home-visual">
+            <h3 style="color: var(--vex-cyan);">Home Health Score</h3>
+            <div style="font-size: 5rem; font-weight: 900; margin: 20px 0;">98</div>
+            <div style="width: 100%; height: 8px; background: #222; border-radius: 10px; overflow: hidden;">
+                <div style="width: 98%; height: 100%; background: var(--vex-cyan);"></div>
             </div>
+            <p style="margin-top: 20px; font-size: 0.8rem; color: var(--text-dim);">SYSTEM OPTIMIZED</p>
+        </div>
+        <div>
+            <span class="tag">For Families</span>
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Vexilla HomeBase.</h2>
+            <p style="color: var(--text-dim); margin-bottom: 20px;">Digital sovereignty for the modern home. Professional-grade optimization with absolute privacy. No screen sharing, no data harvesting—just a perfect PC.</p>
+            <button class="btn btn-primary" onclick="alert('Waitlist Joined!')">JOIN THE WAITLIST</button>
+        </div>
+    </section>
 
-            <div class="feature-list">
-                <div class="feature-item">
-                    <h4>Privacy-First Diagnostics</h4>
-                    <p>Unlike standard remote tools, HomeBase never views your screen or files. It monitors <strong>System Metadata</strong> only—ensuring your family's privacy is mathematically guaranteed.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Thermal & Lifecycle Guard</h4>
-                    <p>HomeBase identifies background processes causing overheating, automatically throttling "rogue" apps to preserve battery and extend hardware life by years.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>The "Digital Handyman"</h4>
-                    <p>Automated cleanup of registry bloat and driver conflicts. Vexilla keeps your personal PC running at Day-1 speeds, permanently.</p>
-                </div>
-                <button class="btn btn-primary" onclick="alert('Joining HomeBase Waitlist...')">Join the Waitlist</button>
+    <section class="roadmap">
+        <span class="tag">Strategic Vision</span>
+        <h2 style="font-size: 2.5rem;">2026-2027 Roadmap</h2>
+        <div class="roadmap-grid">
+            <div class="roadmap-item">
+                <h4>Q3 2026</h4>
+                <p style="color: var(--text-dim);">Enterprise Beta Launch (10,000 Endpoints). Strategic partnership with Tier-1 MSSP.</p>
+            </div>
+            <div class="roadmap-item">
+                <h4>Q4 2026</h4>
+                <p style="color: var(--text-dim);">Public Release of HomeBase. AI-driven consumer hardware diagnostic suite.</p>
+            </div>
+            <div class="roadmap-item">
+                <h4>Q1 2027</h4>
+                <p style="color: var(--text-dim);">Seed Round B Expansion. Post-Quantum Encryption integration for Government clients.</p>
             </div>
         </div>
     </section>
 
-    <section class="faq-section">
-        <div style="text-align: center; margin-bottom: 60px;">
-            <span class="tag">Strategic Intelligence</span>
-            <h2 style="font-size: 2.2rem;">Investor & Founder FAQ</h2>
-        </div>
-        <div class="faq-item">
-            <h4>What is the competitive moat?</h4>
-            <p>Vexilla is active, not passive. Our local Rust-based intelligence eliminates the latency and privacy risks associated with cloud-only management tools like Intune.</p>
-        </div>
-        <div class="faq-item">
-            <h4>What is the exit strategy?</h4>
-            <p>We are positioning Vexilla as the "Self-Healing Layer" for major cloud providers. An exit via acquisition by Microsoft, ServiceNow, or CrowdStrike is the targeted path for a 30x ROI.</p>
-        </div>
+    <section style="max-width: 800px; margin: 100px auto; text-align: center; padding: 0 24px;">
+        <span class="tag">Founder's Note</span>
+        <p style="font-size: 1.5rem; font-style: italic; color: #fff; line-height: 1.8;">
+            "We are building Vexilla to solve the world's IT scarcity problem. In a world of increasing complexity, autonomous intelligence is the only way forward."
+        </p>
+        <p style="margin-top: 20px; font-weight: 900; letter-spacing: 2px;">GLOBAL CITIZEN JOE, LLC</p>
     </section>
 
     <footer class="status-footer">
-        GLOBAL CITIZEN JOE, LLC | VEXILLA REG. DBA | &copy; 2026
+        GLOBAL CITIZEN JOE, LLC | VEXILLA REG. DBA | &copy; 2026 | ALL RIGHTS RESERVED
     </footer>
 
 </body>
