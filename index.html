@@ -1,73 +1,187 @@
-<style>
-    .detailed-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 60px;
-        padding: 80px 5%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vexilla | Autonomous AI IT Support</title>
+    <style>
+        :root {
+            --bg-black: #000000;
+            --card-bg: #0a0a0a;
+            --vex-blue: #007bff;
+            --vex-cyan: #00f2fe;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+        }
 
-    .feature-list {
-        list-style: none;
-        margin: 20px 0;
-        padding: 0;
-    }
-
-    .feature-list li {
-        margin-bottom: 12px;
-        padding-left: 30px;
-        position: relative;
-        color: var(--text-main);
-        font-size: 1.1rem;
-    }
-
-    .feature-list li::before {
-        content: '✓';
-        position: absolute;
-        left: 0;
-        color: var(--vex-cyan);
-        font-weight: bold;
-    }
-
-    .enterprise-section { border-top: 1px solid #222; padding-top: 80px; }
-    .homebase-section { border-top: 1px solid #222; padding-top: 80px; }
-    
-    .section-tag {
-        color: var(--vex-blue);
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 700;
-        font-size: 0.9rem;
-    }
-</style>
-
-<div class="detailed-grid">
-    <section id="enterprise" class="enterprise-section">
-        <span class="section-tag">For Organizations</span>
-        <h2 style="font-size: 2.5rem; margin: 15px 0;">Vexilla Enterprise: The Autonomous SRE</h2>
-        <p style="font-size: 1.2rem; color: var(--text-dim);">Replace reactive helpdesks with a self-healing infrastructure that never sleeps.</p>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        <ul class="feature-list">
-            <li><strong>Silent Remediation:</strong> AI detects and fixes OS-level errors, registry bloat, and driver conflicts without user interruption.</li>
-            <li><strong>Predictive Supply Chain:</strong> Monitors hardware health (S.M.A.R.T, Battery, Thermal) and automatically initiates part-ordering before failure occurs.</li>
-            <li><strong>Immutable Compliance:</strong> Automatically generates real-time audit logs and security posture reports for SOC 2 and HIPAA.</li>
-            <li><strong>Global Fleet Command:</strong> Deploy across 10,000+ endpoints with a single administrator overseeing AI-resolved ticket streams.</li>
-        </ul>
-        <a href="#" class="btn btn-primary" style="width: auto;">Request Enterprise Demo</a>
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 20px;
+            text-align: center;
+            min-height: 60vh;
+        }
+
+        .hero-logo {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #ffffff, #888888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        /* DETAILED PRODUCT SECTIONS */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 100px;
+        }
+
+        .product-section {
+            background: var(--card-bg);
+            border: 1px solid #1a1a1a;
+            border-radius: 24px;
+            padding: 60px;
+            margin-bottom: 40px;
+            text-align: left;
+            transition: border-color 0.3s ease;
+        }
+
+        .product-section:hover {
+            border-color: var(--vex-blue);
+        }
+
+        .tag {
+            color: var(--vex-blue);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .product-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--text-dim);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--vex-cyan);
+            font-weight: bold;
+        }
+
+        .feature-list b { color: #fff; }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 35px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary { background: var(--vex-blue); color: #fff; }
+        .btn-primary:hover { background: #0056b3; transform: scale(1.02); }
+
+        .btn-outline { border: 1px solid #333; color: #fff; }
+        .btn-outline:hover { border-color: var(--vex-cyan); color: var(--vex-cyan); }
+
+        .status-footer {
+            text-align: center;
+            padding: 40px;
+            color: #444;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <img src="vexilla%20Logo.png" alt="Vexilla Logo" class="hero-logo">
+        <h1>Autonomous IT Intelligence.</h1>
+        <p>Changing the landscape of global support. Vexilla is the proactive SRE engine that predicts, secures, and heals digital infrastructure in real-time.</p>
     </section>
 
-    <section id="homebase" class="homebase-section">
-        <span class="section-tag">For Individuals</span>
-        <h2 style="font-size: 2.5rem; margin: 15px 0;">Vexilla HomeBase: Your Digital Handyman</h2>
-        <p style="font-size: 1.2rem; color: var(--text-dim);">Enterprise-grade protection simplified for the modern remote professional and family.</p>
+    <div class="container">
         
-        <ul class="feature-list">
-            <li><strong>One-Click Optimization:</strong> No technical jargon. One button to fix slow boot times, network lag, and software crashes.</li>
-            <li><strong>Privacy-First Shield:</strong> AI monitors for unauthorized camera/mic access and dark-web credential leaks in real-time.</li>
-            <li><strong>Remote Family Support:</strong> Manage and secure parents' or children's devices from a single, simple mobile app.</li>
-            <li><strong>Hardware Longevity:</strong> AI-guided maintenance to extend the physical lifespan of your expensive PC or Mac.</li>
-        </ul>
-        <a href="#" class="btn btn-outline" style="width: auto;">Get HomeBase Protection</a>
-    </section>
-</div>
+        <div class="product-section">
+            <span class="tag">Enterprise Infrastructure</span>
+            <h2>Vexilla Enterprise</h2>
+            <p style="color:var(--text-dim); font-size: 1.2rem;">Full-fleet management for modern IT departments. Replace manual helpdesks with autonomous reliability.</p>
+            
+            <ul class="feature-list">
+                <li><b>Silent AI Remediation:</b> Resolves OS errors and registry bloat without user interruption.</li>
+                <li><b>Hardware Prediction:</b> Monitors S.M.A.R.T. and thermal data to order parts before failure.</li>
+                <li><b>Global Compliance:</b> Real-time, immutable logs for SOC 2 and HIPAA security reporting.</li>
+                <li><b>Fleet Orchestration:</b> One admin manages thousands of endpoints via a central AI-resolved stream.</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Secure My Business</a>
+        </div>
+
+        <div class="product-section">
+            <span class="tag">Individual Protection</span>
+            <h2>Vexilla HomeBase</h2>
+            <p style="color:var(--text-dim); font-size: 1.2rem;">Your personal AI digital handyman. Enterprise-grade stability simplified for families.</p>
+            
+            <ul class="feature-list">
+                <li><b>One-Click Optimization:</b> Jargon-free fixes for network lag, boot times, and crashes.</li>
+                <li><b>Privacy-First Shield:</b> Real-time monitoring for camera, mic, and credential leaks.</li>
+                <li><b>Hardware Longevity:</b> Proactive maintenance to extend the lifespan of your PC or Mac.</li>
+                <li><b>Family Remote Support:</b> Secure and manage multiple household devices from one app.</li>
+            </ul>
+            <a href="#" class="btn btn-outline">Protect My Home</a>
+        </div>
+
+    </div>
+
+    <footer class="status-footer">
+        &copy; 2026 Global Citizen Joe, LLC. All rights reserved. Vexilla is a registered DBA.
+    </footer>
+
+</body>
+</html>
