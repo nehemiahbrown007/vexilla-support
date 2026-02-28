@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vexilla: The World's First Self-Healing IT Infrastructure. Autonomous AI for Enterprise and Home.">
+    <title>Vexilla | Autonomous IT Intelligence</title>
+    
+    <style>
+        :root {
+            --bg-deep: #000000;
+            --vex-blue: #007bff;
+            --vex-cyan: #00f2fe;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-dim: #b0b0b0;
+            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* Prevent horizontal scroll issues */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* LIVING BACKGROUND EFFECT */
+        .mesh-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: #000;
+        }
+        .orb {
+            position: absolute;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: drift 20s infinite alternate ease-in-out;
+        }
+        @keyframes drift {
+            0% { transform: translate(-10%, -10%) scale(1); }
+            100% { transform: translate(15%, 15%) scale(1.1); }
+        }
+
+        /* HERO AREA */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 100px 24px 60px;
+            text-align: center;
+        }
+
+        /* LOGO INTERACTION: Pulse & Glow */
+        .hero-logo {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            cursor: pointer;
+            filter: drop-shadow(0 0 0px transparent);
+        }
+
+        .hero-logo:hover {
+            transform: scale(1.03);
+            filter: drop-shadow(0 0 25px rgba(0, 123, 255, 0.4));
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #fff 40%, #555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 750px;
+            margin-bottom: 40px;
+        }
+
+        /* CONTENT CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        /* GLASS CARD ANIMATION */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 50px 40px;
+            transition: var(--transition);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--vex-blue);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--vex-cyan);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .glass-card h2 { font-size: 2.2rem; margin-bottom: 15px; color: #fff; }
+        .glass-card p { color: var(--text-dim); margin-bottom: 30px; font-size: 1.05rem; }
+
+        /* BUTTONS */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            text-align: center;
+            border-radius: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .btn-primary { 
+            background: var(--vex-blue); 
+            color: #fff; 
+        }
+        .btn-primary:hover { 
+            background: #fff; 
+            color: #000; 
+            box-shadow: 0 0 25px #fff;
+        }
+
+        .btn-outline { 
+            border: 1px solid var(--glass-border); 
+            color: #fff; 
+        }
+        .btn-outline:hover { 
+            border-color: var(--vex-cyan); 
+            color: var(--vex-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+
+        /* FOOTER */
+        .status-footer {
+            text-align: center;
+            padding: 80px 20px;
+            font-size: 0.75rem;
+            color: #444;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 60px 20px; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mesh-bg">
+        <div class="orb" style="top: 15%; left: 5%;"></div>
+        <div class="orb" style="bottom: 10%; right: 5%; animation-delay: -7s;"></div>
+    </div>
+
+    <main class="hero">
+        <img src="vexilla%20Logo.png" alt="Vexilla Logo" class="hero-logo">
+        <h1>Autonomous IT Intelligence.</h1>
+        <p>A next-generation self-healing agent architecture that ensures your infrastructure is always operational, secure, and predictive.</p>
+    </main>
+
+    <div class="container">
+        
+        <div class="glass-card">
+            <div>
+                <span class="tag">Fleet Command</span>
+                <h2>Enterprise</h2>
+                <p>Deploy autonomous SRE agents across your entire global network. Real-time remediation, predictive hardware logistics, and immutable compliance auditing.</p>
+            </div>
+            <a href="#" class="btn btn-primary">Secure My Business</a>
+        </div>
+
+        <div class="glass-card">
+            <div>
+                <span class="tag">Digital Home</span>
+                <h2>HomeBase</h2>
+                <p>Enterprise-level stability designed for families and remote professionals. One-click optimization, privacy monitoring, and total system health transparency.</p>
+            </div>
+            <a href="#" class="btn btn-outline">Protect My Home</a>
+        </div>
+
+    </div>
+
+    <footer class="status-footer">
+        GLOBAL CITIZEN JOE, LLC | VEXILLA REG. DBA | &copy; 2026
+    </footer>
+
+</body>
+</html>
