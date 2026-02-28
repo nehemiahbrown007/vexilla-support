@@ -1,346 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vexilla: Autonomous AI IT Infrastructure. Self-healing systems for Enterprise and Home.">
-    <title>Vexilla | Autonomous IT Intelligence</title>
-    
-    <style>
-        :root {
-            --bg-deep: #000000;
-            --vex-blue: #007bff;
-            --vex-cyan: #00f2fe;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-main: #ffffff;
-            --text-dim: #b0b0b0;
-            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
+<style>
+    .impact-section {
+        max-width: 1200px;
+        margin: 80px auto;
+        padding: 60px 24px;
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 0%, transparent 100%);
+        border-radius: 32px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            font-family: 'Inter', -apple-system, sans-serif;
-            overflow-x: hidden;
-            min-height: 100vh;
-            line-height: 1.5;
-        }
+    .impact-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
 
-        /* BACKGROUND */
-        .mesh-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background: #000;
-        }
-        .orb {
-            position: absolute;
-            width: 50vw; height: 50vw;
-            background: radial-gradient(circle, rgba(0, 123, 255, 0.12) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(80px);
-            animation: drift 20s infinite alternate ease-in-out;
-        }
-        @keyframes drift {
-            0% { transform: translate(-10%, -10%) scale(1); }
-            100% { transform: translate(15%, 15%) scale(1.1); }
-        }
+    .stat-card {
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        text-align: center;
+    }
 
-        /* HERO AREA */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 120px 24px 60px;
-            text-align: center;
-        }
+    .stat-card h5 { color: var(--vex-cyan); font-size: 2rem; margin-bottom: 5px; }
+    .stat-card p { font-size: 0.85rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
 
-        .hero-logo {
-            width: 100%;
-            max-width: 420px;
-            height: auto;
-            margin-bottom: 40px;
-            transition: var(--transition);
-            cursor: pointer;
-            filter: drop-shadow(0 0 0px transparent);
-            background: transparent !important;
-        }
+    @media (max-width: 768px) { .impact-section { grid-template-columns: 1fr; } }
+</style>
 
-        .hero-logo:hover {
-            transform: scale(1.02);
-            filter: drop-shadow(0 0 30px rgba(0, 123, 255, 0.3));
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.8rem);
-            font-weight: 800;
-            letter-spacing: -3px;
-            margin-bottom: 25px;
-            background: linear-gradient(180deg, #fff 30%, #777 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-dim);
-            max-width: 750px;
-            margin-bottom: 50px;
-            letter-spacing: -0.2px;
-        }
-
-        /* CARDS */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 40px;
-        }
-
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 32px;
-            padding: 60px 45px;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--vex-blue);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .tag {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--vex-cyan);
-            font-weight: 900;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .glass-card h2 { font-size: 2.5rem; margin-bottom: 15px; color: #fff; letter-spacing: -1px; }
-
-        /* BUTTONS (FIXED CONTRAST) */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 22px;
-            text-align: center;
-            border-radius: 16px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: var(--transition);
-            margin-top: 40px;
-        }
-
-        .btn-primary { 
-            background: var(--vex-blue); 
-            color: #ffffff !important;
-            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
-        }
-        .btn-primary:hover { 
-            background: #ffffff; 
-            color: #000000 !important;
-            box-shadow: 0 0 40px #ffffff;
-        }
-
-        .btn-outline { 
-            border: 2px solid var(--vex-cyan); 
-            color: #ffffff !important;
-            background: transparent;
-        }
-        .btn-outline:hover { 
-            background: var(--vex-cyan);
-            color: #000000 !important;
-            box-shadow: 0 0 30px var(--vex-cyan);
-        }
-
-        /* ENTERPRISE DEEP DIVE */
-        .enterprise-detail {
-            max-width: 1200px;
-            margin: 150px auto;
-            padding: 100px 24px;
-            border-top: 1px solid var(--glass-border);
-            scroll-margin-top: 50px; /* Fix for button scrolling */
-        }
-
-        .detail-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 80px;
-        }
-
-        .detail-item {
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.015);
-            border-radius: 24px;
-            border-top: 2px solid var(--vex-blue);
-            transition: var(--transition);
-        }
-
-        .detail-item:hover { background: rgba(255, 255, 255, 0.03); }
-
-        .detail-item h3 { color: #fff; margin-bottom: 15px; font-size: 1.5rem; }
-        .detail-item p { color: var(--text-dim); line-height: 1.8; }
-
-        .tech-specs {
-            margin-top: 60px;
-            background: linear-gradient(to right, rgba(0, 123, 255, 0.05), transparent);
-            padding: 50px;
-            border-radius: 24px;
-            border: 1px solid var(--glass-border);
-        }
-
-        .spec-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            list-style: none;
-            margin-top: 30px;
-        }
-
-        .spec-tag {
-            background: #0a0a0a;
-            padding: 10px 20px;
-            border-radius: 100px;
-            border: 1px solid #222;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: var(--vex-cyan);
-            box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
-        }
-
-        /* FAQ */
-        .faq-section { max-width: 900px; margin: 0 auto 150px; padding: 0 24px; }
-        .faq-item {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 35px;
-            margin-bottom: 25px;
-        }
-        .faq-item h4 { font-size: 1.2rem; color: #fff; margin-bottom: 12px; display: flex; gap: 12px; }
-        .faq-item h4::before { content: 'Q:'; color: var(--vex-cyan); font-weight: 900; }
-
-        .status-footer {
-            text-align: center;
-            padding: 100px 20px;
-            font-size: 0.7rem;
-            color: #555;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            border-top: 1px solid #111;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="mesh-bg">
-        <div class="orb" style="top: 10%; left: -5%;"></div>
-        <div class="orb" style="bottom: 5%; right: -5%; animation-delay: -5s;"></div>
+<section class="impact-section">
+    <div>
+        <span class="tag">Security & Compliance</span>
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #fff;">Edge-Native Privacy.</h2>
+        <p style="color: var(--text-dim); margin-bottom: 20px;">Vexilla agents utilize <strong>Post-Quantum Encryption</strong> and local-only inference. We do not ingest your sensitive data into the cloud—we send the "Intelligence" to the device, ensuring total compliance with global data laws.</p>
+        <ul style="color: var(--vex-cyan); list-style: none; font-weight: 700;">
+            <li>✓ HIPAA / GDPR / SOC 2 Type II</li>
+            <li>✓ End-to-End Encrypted Telemetry</li>
+            <li>✓ Zero-Knowledge Architecture</li>
+        </ul>
     </div>
 
-    <main class="hero">
-        <img src="vexilla%20Logo.png" alt="Vexilla Logo" class="hero-logo">
-        <h1>Autonomous IT Intelligence.</h1>
-        <p>A next-generation self-healing agent architecture that ensures your infrastructure is always operational, secure, and predictive.</p>
-    </main>
-
-    <div class="container">
-        <div class="glass-card">
-            <div>
-                <span class="tag">Fleet Command</span>
-                <h2>Enterprise</h2>
-                <p>Deploy autonomous SRE agents across your global network. Real-time remediation, predictive logistics, and immutable compliance auditing.</p>
-            </div>
-            <a href="#enterprise-deep-dive" class="btn btn-primary">Secure My Business</a>
+    <div class="impact-stats">
+        <div class="stat-card">
+            <h5>85%</h5>
+            <p>Ticket Reduction</p>
         </div>
-
-        <div class="glass-card">
-            <div>
-                <span class="tag">Digital Home</span>
-                <h2>HomeBase</h2>
-                <p>Enterprise-level stability designed for families and remote professionals. One-click optimization, privacy monitoring, and total transparency.</p>
-            </div>
-            <button class="btn btn-outline" onclick="alert('HomeBase Waitlist Opening Soon!')">Protect My Home</button>
+        <div class="stat-card">
+            <h5>< 4s</h5>
+            <p>Remediation Time</p>
+        </div>
+        <div class="stat-card">
+            <h5>100%</h5>
+            <p>Audit Accuracy</p>
+        </div>
+        <div class="stat-card">
+            <h5>30%</h5>
+            <p>Hardware ROI</p>
         </div>
     </div>
-
-    
-    <section id="enterprise-deep-dive" class="enterprise-detail">
-        <div style="text-align: center;">
-            <span class="tag">Product Architecture</span>
-            <h2 style="font-size: 3rem; margin: 20px 0; letter-spacing: -1px;">The Vexilla Enterprise Engine</h2>
-            <p style="max-width: 850px; margin: 0 auto; color: var(--text-dim); font-size: 1.25rem;">
-                Moving beyond reactive support. Vexilla creates a distributed network of autonomous agents that identify and repair system drift in milliseconds.
-            </p>
-        </div>
-
-        <div class="detail-grid">
-            <div class="detail-item">
-                <h3>Autonomous SRE Agents</h3>
-                <p>Built in <strong>Rust</strong> for memory safety and zero-latency execution. These agents compare active system states against baseline "Perfect Health" templates to repair registry corruption and stalled services instantly.</p>
-            </div>
-
-            <div class="detail-item">
-                <h3>Predictive Supply Chain</h3>
-                <p>Vexilla tracks SSD wear-leveling and thermal signatures. When failure probability hits 90%, the system <strong>triggers a procurement ticket</strong> for a replacement, ensuring hardware arrives before the user goes offline.</p>
-            </div>
-
-            <div class="detail-item">
-                <h3>Zero-Trust Remediation</h3>
-                <p>Eliminate "God Mode" risks. Using <strong>Just-In-Time (JIT) Elevation</strong>, the AI is granted administrative rights only for the duration of the fix, revoking access immediately after verification.</p>
-            </div>
-        </div>
-
-        <div class="tech-specs">
-            <h3 style="margin-bottom: 10px;">Enterprise Stack Compatibility</h3>
-            <p style="color: var(--text-dim);">Seamless integration with your existing stack.</p>
-            <ul class="spec-list">
-                <li class="spec-tag">Active Directory / Entra ID</li>
-                <li class="spec-tag">Multi-Cloud (AWS/Azure/GCP)</li>
-                <li class="spec-tag">ISO 27001 / SOC 2 Ready</li>
-                <li class="spec-tag">Rust-Safe Memory Engine</li>
-                <li class="spec-tag">REST API v2.0</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="faq-section">
-        <div style="text-align: center; margin-bottom: 60px;">
-            <span class="tag">Strategic Intelligence</span>
-            <h2 style="font-size: 2.5rem;">Investor & Founder FAQ</h2>
-        </div>
-        <div class="faq-item">
-            <h4>What is the competitive moat?</h4>
-            <p>Vexilla is active, not passive. Our Rust-based agent executes fixes locally without cloud latency, creating a performance barrier that cloud-heavy legacy competitors cannot replicate.</p>
-        </div>
-        <div class="faq-item">
-            <h4>What is the projected Exit Strategy?</h4>
-            <p>We are building the ultimate acquisition target for Microsoft, CrowdStrike, or ServiceNow. Solving the helpdesk scarcity problem represents a multi-billion dollar efficiency play for an acquirer.</p>
-        </div>
-    </section>
-
-    <footer class="status-footer">
-        GLOBAL CITIZEN JOE, LLC | VEXILLA REG. DBA | &copy; 2026
-    </footer>
-
-</body>
-</html>
+</section>
