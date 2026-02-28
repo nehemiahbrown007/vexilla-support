@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vexilla: The World's First Self-Healing IT Infrastructure.">
+    <meta name="description" content="Vexilla: Autonomous AI IT Infrastructure. Self-healing systems for Enterprise and Home.">
     <title>Vexilla | Autonomous IT Intelligence</title>
     
     <style>
-        /* 1. GLOBAL RESET & THEME */
         :root {
-            --bg-deep: #000000; /* Locked Pure Black */
+            --bg-deep: #000000;
             --vex-blue: #007bff;
             --vex-cyan: #00f2fe;
             --glass-bg: rgba(255, 255, 255, 0.03);
@@ -19,27 +18,22 @@
             --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
-            border: none; /* Globally removes unexpected borders/rectangles */
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
-            background-color: var(--bg-deep) !important; /* Force Black Background */
+            background-color: var(--bg-deep);
             color: var(--text-main);
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        /* 2. DYNAMIC BACKGROUND LAYER */
+        /* DYNAMIC BACKGROUND */
         .mesh-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: #000; /* Safety layer */
+            background: #000;
         }
         .orb {
             position: absolute;
@@ -49,13 +43,12 @@
             filter: blur(80px);
             animation: drift 20s infinite alternate ease-in-out;
         }
-
         @keyframes drift {
             0% { transform: translate(-10%, -10%) scale(1); }
             100% { transform: translate(15%, 15%) scale(1.1); }
         }
 
-        /* 3. HERO & LOGO (FIXED: NO RECTANGLE) */
+        /* HERO AREA */
         .hero {
             display: flex;
             flex-direction: column;
@@ -71,20 +64,14 @@
             margin-bottom: 40px;
             transition: var(--transition);
             cursor: pointer;
-            
-            /* The Fix: No background, no border, no container shadow */
-            background: transparent !important;
-            border: 0 !important;
-            outline: none !important;
-            box-shadow: none !important;
-            
-            /* Applies glow ONLY to the logo's transparent shape on hover */
             filter: drop-shadow(0 0 0px transparent);
+            background: transparent !important;
+            border: none !important;
         }
 
         .hero-logo:hover {
             transform: scale(1.03);
-            filter: drop-shadow(0 0 30px rgba(0, 123, 255, 0.45));
+            filter: drop-shadow(0 0 25px rgba(0, 123, 255, 0.4));
         }
 
         .hero h1 {
@@ -97,18 +84,11 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-dim);
-            max-width: 750px;
-            margin-bottom: 40px;
-        }
-
-        /* 4. INVESTOR-READY GLASS CARDS */
+        /* PRODUCT SECTIONS */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px 100px;
+            padding: 0 24px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 32px;
@@ -132,7 +112,6 @@
             transform: translateY(-12px);
             border-color: var(--vex-blue);
             background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         .tag {
@@ -144,10 +123,28 @@
             margin-bottom: 16px;
         }
 
-        .glass-card h2 { font-size: 2.2rem; margin-bottom: 15px; color: #fff; }
-        .glass-card p { color: var(--text-dim); margin-bottom: 30px; font-size: 1.05rem; }
+        /* FAQ SECTION */
+        .faq-section {
+            max-width: 900px;
+            margin: 120px auto;
+            padding: 0 24px;
+        }
 
-        /* 5. INTERACTIVE BUTTONS */
+        .faq-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover { border-color: var(--vex-blue); }
+
+        .faq-item h4 { color: #fff; margin-bottom: 10px; display: flex; gap: 10px; }
+        .faq-item h4::before { content: 'Q:'; color: var(--vex-cyan); }
+
+        /* BUTTONS */
         .btn {
             display: block;
             width: 100%;
@@ -157,15 +154,14 @@
             font-weight: 700;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            cursor: pointer;
             transition: var(--transition);
         }
 
         .btn-primary { background: var(--vex-blue); color: #fff; }
         .btn-primary:hover { background: #fff; color: #000; box-shadow: 0 0 25px #fff; }
-
         .btn-outline { border: 1px solid var(--glass-border); color: #fff; }
-        .btn-outline:hover { border-color: var(--vex-cyan); color: var(--vex-cyan); box-shadow: 0 0 15px rgba(0, 242, 254, 0.2); }
+        .btn-outline:hover { border-color: var(--vex-cyan); color: var(--vex-cyan); }
 
         .status-footer {
             text-align: center;
@@ -173,12 +169,6 @@
             font-size: 0.75rem;
             color: #444;
             letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 768px) {
-            .hero { padding: 60px 20px; }
-            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -192,18 +182,17 @@
     <main class="hero">
         <img src="vexilla%20Logo.png" alt="Vexilla Logo" class="hero-logo">
         <h1>Autonomous IT Intelligence.</h1>
-        <p>A next-generation self-healing agent architecture that ensures your infrastructure is always operational, secure, and predictive.</p>
+        <p>A next-generation self-healing agent architecture that bridges the gap between complex infrastructure and 100% availability.</p>
     </main>
 
     <div class="container">
-        
         <div class="glass-card">
             <div>
                 <span class="tag">Fleet Command</span>
                 <h2>Enterprise</h2>
-                <p>Deploy autonomous SRE agents across your entire global network. Real-time remediation, predictive hardware logistics, and immutable compliance auditing.</p>
+                <p>Deploy autonomous SRE agents across your global network. Real-time remediation, predictive hardware logistics, and immutable compliance auditing.</p>
             </div>
-            <a href="#" class="btn btn-primary">Secure My Business</a>
+            <button class="btn btn-primary" onclick="alert('Waitlist Coming Soon!')">Secure My Business</button>
         </div>
 
         <div class="glass-card">
@@ -212,10 +201,31 @@
                 <h2>HomeBase</h2>
                 <p>Enterprise-level stability designed for families and remote professionals. One-click optimization, privacy monitoring, and total system health transparency.</p>
             </div>
-            <a href="#" class="btn btn-outline">Protect My Home</a>
+            <button class="btn btn-outline" onclick="alert('Waitlist Coming Soon!')">Protect My Home</button>
+        </div>
+    </div>
+
+    <section class="faq-section">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <span class="tag">Strategic Intelligence</span>
+            <h2 style="font-size: 2.2rem;">Investor & Founder FAQ</h2>
         </div>
 
-    </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>What is the competitive moat?</h4>
+                <p>Legacy tools are passive. Vexilla is active. Our proprietary Rust-based agent executes fixes locally without cloud latency, creating a performance moat cloud-heavy giants cannot replicate.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How is system-level access secured?</h4>
+                <p>We utilize Zero-Trust JIT Elevation. Access is granted for signed scripts only during the fix window and instantly revoked, with every action logged to an immutable ledger.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What is the ROI for Seed investors?</h4>
+                <p>We are targeting a 30x return through acquisition. By solving helpdesk scarcity, Vexilla is a prime target for Microsoft, CrowdStrike, or ServiceNow at a 10x-20x revenue multiple.</p>
+            </div>
+        </div>
+    </section>
 
     <footer class="status-footer">
         GLOBAL CITIZEN JOE, LLC | VEXILLA REG. DBA | &copy; 2026
