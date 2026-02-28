@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vexilla: Autonomous AI IT Infrastructure. Self-healing systems for Enterprise and Home.">
+    <meta name="description" content="Vexilla: Autonomous IT Orchestration. Part of the Solomon Kin Records Media Group.">
     <title>Vexilla | Autonomous IT Intelligence</title>
     
     <style>
@@ -58,11 +58,12 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--glass-border);
         }
 
-        .nav-logo { font-weight: 900; letter-spacing: 2px; color: #fff; font-size: 1.2rem; }
+        .nav-logo { font-weight: 900; letter-spacing: 2px; color: #fff; font-size: 1rem; }
+        .nav-logo span { color: var(--vex-cyan); opacity: 0.7; font-weight: 400; font-size: 0.75rem; margin-left: 10px; text-transform: uppercase; }
 
         /* HERO AREA */
         .hero {
@@ -97,14 +98,13 @@
             padding: 40px;
             text-align: center;
             opacity: 0.5;
-            filter: grayscale(1);
             display: flex;
             justify-content: center;
             gap: 50px;
             flex-wrap: wrap;
             margin-bottom: 80px;
         }
-        .logo-bar span { font-weight: 800; color: #555; font-size: 0.9rem; letter-spacing: 2px; }
+        .logo-bar span { font-weight: 800; color: #555; font-size: 0.8rem; letter-spacing: 2px; }
 
         /* MAIN SELECTION CARDS */
         .container {
@@ -128,7 +128,7 @@
             justify-content: space-between;
         }
 
-        .glass-card:hover { border-color: var(--vex-blue); transform: translateY(-10px); }
+        .glass-card:hover { border-color: var(--vex-blue); transform: translateY(-10px); background: rgba(255,255,255,0.05); }
 
         .tag {
             font-size: 0.7rem;
@@ -160,60 +160,40 @@
         .btn-primary { background: var(--vex-blue); color: #fff; }
         .btn-primary:hover { background: #fff; color: #000; box-shadow: 0 0 30px #fff; }
 
-        /* ROADMAP SECTION */
-        .roadmap {
-            max-width: 1200px;
-            margin: 150px auto;
-            padding: 0 24px;
-        }
-
-        .roadmap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 50px;
-        }
-
-        .roadmap-item {
-            padding: 30px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 20px;
-            border: 1px solid #222;
-        }
-
-        .roadmap-item h4 { color: var(--vex-cyan); margin-bottom: 10px; }
+        /* SECTIONS */
+        .section-padding { padding: 120px 24px; max-width: 1200px; margin: 0 auto; }
 
         /* IMPACT STATS */
         .impact-section {
-            max-width: 1200px;
-            margin: 100px auto;
-            padding: 80px 40px;
             background: linear-gradient(135deg, rgba(0, 123, 255, 0.08) 0%, transparent 100%);
             border-radius: 40px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
+            margin: 100px auto;
+            padding: 80px 40px;
         }
 
         .impact-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .stat-card { padding: 30px; background: rgba(255,255,255,0.03); border-radius: 24px; text-align: center; border: 1px solid var(--glass-border); }
-        .stat-card h5 { color: var(--vex-cyan); font-size: 2.2rem; }
+        .stat-card { padding: 30px; background: rgba(255,255,255,0.03); border-radius: 24px; text-align: center; border: 1px solid var(--glass-border); transition: var(--transition); }
+        .stat-card:hover { border-color: var(--vex-cyan); }
+        .stat-card h5 { color: var(--vex-cyan); font-size: 2.2rem; font-weight: 800; }
 
         /* HOMEBASE VISUAL */
-        .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 100px auto; padding: 0 24px;}
-        .home-visual { background: var(--glass-bg); padding: 40px; border-radius: 24px; text-align: center; border: 1px solid var(--glass-border); }
+        .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .home-visual { background: var(--glass-bg); padding: 50px; border-radius: 32px; text-align: center; border: 1px solid var(--glass-border); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
 
-        .status-footer { text-align: center; padding: 100px 20px; font-size: 0.7rem; color: #444; letter-spacing: 3px; border-top: 1px solid #111; }
+        .status-footer { text-align: center; padding: 100px 20px; font-size: 0.7rem; color: #555; letter-spacing: 3px; border-top: 1px solid #111; line-height: 2; }
 
-        @media (max-width: 992px) { .impact-section, .home-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 992px) { .impact-section, .home-grid { grid-template-columns: 1fr; text-align: center; } }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-logo">VEXILLA</div>
-        <a href="mailto:invest@vexilla.ai" class="btn-primary" style="padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 0.8rem;">REQUEST PITCH DECK</a>
+        <div class="nav-logo">VEXILLA <span>Solomon Kin Records Media Group</span></div>
+        <a href="mailto:invest@vexilla.ai" class="btn-primary" style="padding: 12px 24px; border-radius: 12px; text-decoration: none; font-size: 0.75rem;">SECURE ACCESS</a>
     </nav>
 
     <div class="mesh-bg">
@@ -223,14 +203,14 @@
 
     <main class="hero">
         <img src="vexilla%20Logo.png" alt="Vexilla Logo" class="hero-logo">
-        <h1>Autonomous IT Intelligence.</h1>
-        <p style="color: var(--text-dim); max-width: 700px; font-size: 1.2rem;">The world’s first self-healing infrastructure agent built for $1B scale. We don't fix tickets. We eliminate them.</p>
+        <h1>Autonomous Orchestration.</h1>
+        <p style="color: var(--text-dim); max-width: 750px; font-size: 1.25rem;">Vexilla: A self-healing system of harmony for the global enterprise. Engineering the future of digital sovereignty under the Solomon Kin vision.</p>
     </main>
 
     <div class="logo-bar">
-        <span>COMPATIBLE WITH:</span>
+        <span>ENTERPRISE STANDARDS:</span>
         <span>AZURE AD</span>
-        <span>AWS CLOUD</span>
+        <span>AWS HYBRID</span>
         <span>CROWDSTRIKE</span>
         <span>SERVICENOW</span>
     </div>
@@ -240,107 +220,115 @@
             <div>
                 <span class="tag">Fleet Command</span>
                 <h2>Enterprise</h2>
-                <p>Global endpoint management with autonomous remediation and Predictive Logistics.</p>
+                <p>Global endpoint management with sub-millisecond autonomous remediation and predictive hardware logistics.</p>
             </div>
-            <a href="#enterprise" class="btn btn-primary">Enterprise Deep Dive</a>
+            <a href="#enterprise" class="btn btn-primary">Strategic Deep Dive</a>
         </div>
 
         <div class="glass-card">
             <div>
                 <span class="tag">Digital Home</span>
                 <h2>HomeBase</h2>
-                <p>Consumer-grade system stability for remote professionals and modern families.</p>
+                <p>Consumer-grade stability for remote professionals and families. Enterprise power, simplified for life.</p>
             </div>
-            <a href="#homebase" class="btn btn-outline" style="border: 2px solid var(--vex-cyan); color:#fff; text-decoration:none;">Explore HomeBase</a>
+            <a href="#homebase" class="btn btn-outline" style="border: 2px solid var(--vex-cyan); color:#fff; text-decoration:none;">Protect My Home</a>
         </div>
     </div>
 
-    
-    <section id="enterprise" style="max-width: 1200px; margin: 150px auto; padding: 0 24px;">
-        <span class="tag">The Engine</span>
-        <h2 style="font-size: 3rem; margin-bottom: 40px;">Self-Healing Architecture.</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+    <section id="enterprise" class="section-padding">
+        <div style="text-align: center; margin-bottom: 80px;">
+            <span class="tag">Technical Architecture</span>
+            <h2 style="font-size: 3rem; margin-top: 10px;">The Autonomous Pulse.</h2>
+            <p style="color: var(--text-dim); max-width: 800px; margin: 20px auto;">We replace reactive helpdesks with a proactive, Rust-core agent that solves problems before they reach the human ear.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
             <div class="stat-card" style="text-align: left;">
-                <h4>Rust-Core Agents</h4>
-                <p style="color: var(--text-dim); margin-top: 10px;">Zero-latency, memory-safe execution on the edge. Vexilla identifies and repairs system drift in milliseconds.</p>
+                <h4 style="color:#fff;">Sub-Second Remediation</h4>
+                <p style="color: var(--text-dim); margin-top: 15px; font-size: 0.95rem;">Our agents operate on the edge. Registry drift, service failures, and security vulnerabilities are corrected locally, eliminating cloud latency.</p>
             </div>
             <div class="stat-card" style="text-align: left;">
-                <h4>Predictive Procurement</h4>
-                <p style="color: var(--text-dim); margin-top: 10px;">Proprietary thermal and SSD wear-leveling models predict hardware failure before the user notices a lag.</p>
+                <h4 style="color:#fff;">Predictive Procurement</h4>
+                <p style="color: var(--text-dim); margin-top: 15px; font-size: 0.95rem;">Proprietary thermal telemetry identifies hardware decay. Vexilla initiates hardware replacement cycles automatically, ensuring zero-downtime.</p>
             </div>
             <div class="stat-card" style="text-align: left;">
-                <h4>Zero-Trust JIT</h4>
-                <p style="color: var(--text-dim); margin-top: 10px;">Administrative elevation is granted only for the duration of the autonomous fix, then instantly revoked.</p>
+                <h4 style="color:#fff;">Immutable Security</h4>
+                <p style="color: var(--text-dim); margin-top: 15px; font-size: 0.95rem;">Post-Quantum encryption and Just-In-Time (JIT) elevation ensure that every autonomous action is secure, audited, and immutable.</p>
             </div>
         </div>
     </section>
 
-    <section class="impact-section">
-        <div>
-            <span class="tag">ROI & EXIT</span>
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">The $1B Opportunity.</h2>
-            <p style="color: var(--text-dim); margin-bottom: 25px;">Vexilla turns IT from a cost-center into a strategic asset. By reducing L1 support tickets by 85%, we unlock massive operational efficiency for the Fortune 500.</p>
-            <ul style="color: var(--vex-cyan); list-style: none; font-weight: 700; line-height: 2;">
-                <li>✓ HIPAA / GDPR / SOC 2 Ready</li>
-                <li>✓ Targeted Acquisition by Microsoft/CrowdStrike</li>
-                <li>✓ Massive Scalability via B2C HomeBase</li>
-            </ul>
-        </div>
-        <div class="impact-stats">
-            <div class="stat-card"><h5>85%</h5><p>TICKET REDUCTION</p></div>
-            <div class="stat-card"><h5>< 4s</h5><p>FIX TIME</p></div>
-            <div class="stat-card"><h5>30%</h5><p>HARDWARE ROI</p></div>
-            <div class="stat-card"><h5>30X</h5><p>EXIT POTENTIAL</p></div>
-        </div>
-    </section>
+    <div class="section-padding">
+        <section class="impact-section">
+            <div>
+                <span class="tag">Investor ROI</span>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Orchestrating Value.</h2>
+                <p style="color: var(--text-dim); margin-bottom: 25px;">Vexilla transforms IT from a chaotic expense into a high-performance asset. For Solomon Kin Records, Media Group, this represents the ultimate fusion of technology and operational rhythm.</p>
+                <ul style="color: var(--vex-cyan); list-style: none; font-weight: 700; line-height: 2.2;">
+                    <li>✓ 85% Reduction in Support Overhead</li>
+                    <li>✓ Global Compliance (HIPAA / GDPR / SOC 2)</li>
+                    <li>✓ Targeted Exit to Tier-1 Security Leaders</li>
+                </ul>
+            </div>
+            <div class="impact-stats">
+                <div class="stat-card"><h5>85%</h5><p>TICKET DROP</p></div>
+                <div class="stat-card"><h5>< 4s</h5><p>REPAIR TIME</p></div>
+                <div class="stat-card"><h5>30%</h5><p>HARDWARE ROI</p></div>
+                <div class="stat-card"><h5>30X</h5><p>EXIT TARGET</p></div>
+            </div>
+        </section>
+    </div>
 
-    
-    <section id="homebase" class="home-grid">
-        <div class="home-visual">
-            <h3 style="color: var(--vex-cyan);">Home Health Score</h3>
-            <div style="font-size: 5rem; font-weight: 900; margin: 20px 0;">98</div>
-            <div style="width: 100%; height: 8px; background: #222; border-radius: 10px; overflow: hidden;">
-                <div style="width: 98%; height: 100%; background: var(--vex-cyan);"></div>
+    <section id="homebase" class="section-padding">
+        <div class="home-grid">
+            <div class="home-visual">
+                <h3 style="color: var(--vex-cyan); letter-spacing: 2px;">VEXILLA PULSE</h3>
+                <div style="font-size: 6rem; font-weight: 900; margin: 10px 0; color: #fff;">98</div>
+                <div style="width: 100%; height: 6px; background: #222; border-radius: 10px; overflow: hidden;">
+                    <div style="width: 98%; height: 100%; background: var(--vex-cyan);"></div>
+                </div>
+                <p style="margin-top: 25px; font-size: 0.8rem; color: var(--text-dim); letter-spacing: 3px;">SYSTEM HARMONY ACHIEVED</p>
             </div>
-            <p style="margin-top: 20px; font-size: 0.8rem; color: var(--text-dim);">SYSTEM OPTIMIZED</p>
-        </div>
-        <div>
-            <span class="tag">For Families</span>
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Vexilla HomeBase.</h2>
-            <p style="color: var(--text-dim); margin-bottom: 20px;">Digital sovereignty for the modern home. Professional-grade optimization with absolute privacy. No screen sharing, no data harvesting—just a perfect PC.</p>
-            <button class="btn btn-primary" onclick="alert('Waitlist Joined!')">JOIN THE WAITLIST</button>
-        </div>
-    </section>
-
-    <section class="roadmap">
-        <span class="tag">Strategic Vision</span>
-        <h2 style="font-size: 2.5rem;">2026-2027 Roadmap</h2>
-        <div class="roadmap-grid">
-            <div class="roadmap-item">
-                <h4>Q3 2026</h4>
-                <p style="color: var(--text-dim);">Enterprise Beta Launch (10,000 Endpoints). Strategic partnership with Tier-1 MSSP.</p>
-            </div>
-            <div class="roadmap-item">
-                <h4>Q4 2026</h4>
-                <p style="color: var(--text-dim);">Public Release of HomeBase. AI-driven consumer hardware diagnostic suite.</p>
-            </div>
-            <div class="roadmap-item">
-                <h4>Q1 2027</h4>
-                <p style="color: var(--text-dim);">Seed Round B Expansion. Post-Quantum Encryption integration for Government clients.</p>
+            <div>
+                <span class="tag">Family First</span>
+                <h2 style="font-size: 2.8rem; margin-bottom: 20px;">Vexilla HomeBase.</h2>
+                <p style="color: var(--text-dim); margin-bottom: 25px; font-size: 1.1rem;">Enterprise-level stability for the home office. HomeBase monitors the health of your digital ecosystem with total privacy, ensuring your family stays connected and optimized without the "Big Tech" surveillance.</p>
+                <button class="btn btn-primary" onclick="alert('Priority Access Granted to Solomon Kin Waitlist.')">JOIN THE PRIORITY LIST</button>
             </div>
         </div>
     </section>
 
-    <section style="max-width: 800px; margin: 100px auto; text-align: center; padding: 0 24px;">
-        <span class="tag">Founder's Note</span>
-        <p style="font-size: 1.5rem; font-style: italic; color: #fff; line-height: 1.8;">
-            "We are building Vexilla to solve the world's IT scarcity problem. In a world of increasing complexity, autonomous intelligence is the only way forward."
+    <section class="section-padding">
+        <span class="tag">Strategic Roadmap</span>
+        <h2 style="font-size: 2.5rem; margin-bottom: 40px;">2026 Vision</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+            <div class="stat-card" style="text-align: left; padding: 40px;">
+                <h4 style="color: var(--vex-cyan);">Q3 2026</h4>
+                <p style="color: var(--text-dim); margin-top: 10px;">Enterprise Alpha launch with Solomon Kin flagship partners.</p>
+            </div>
+            <div class="stat-card" style="text-align: left; padding: 40px;">
+                <h4 style="color: var(--vex-cyan);">Q4 2026</h4>
+                <p style="color: var(--text-dim);">Public HomeBase Beta rollout. Expansion of AI remediation library.</p>
+            </div>
+            <div class="stat-card" style="text-align: left; padding: 40px;">
+                <h4 style="color: var(--vex-cyan);">Q1 2027</h4>
+                <p style="color: var(--text-dim);">Global Scaling. Strategic M&A discussions with cloud infrastructure leaders.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="max-width: 900px; margin: 100px auto; text-align: center; padding: 0 24px;">
+        <span class="tag">From the Studio</span>
+        <p style="font-size: 1.6rem; font-style: italic; color: #fff; line-height: 1.8; font-weight: 300;">
+            "We believe technology should have a rhythm. Vexilla is the silent conductor ensuring your infrastructure stays in tune, so you can focus on the music of your business."
         </p>
-        <p style="margin-top: 20px; font-weight: 900; letter-spacing: 2px;">GLOBAL CITIZEN JOE, LLC</p>
+        <p style="margin-top: 30px; font-weight: 900; letter-spacing: 4px; color: var(--vex-cyan); font-size: 0.9rem;">SOLOMON KIN RECORDS, MEDIA GROUP</p>
     </section>
 
     <footer class="status-footer">
-        GLOBAL CITIZEN JOE, LLC | VEXILLA REG. DBA | &copy; 2026 | ALL RIGHTS RESERVED
+        &copy; 2026 SOLOMON KIN RECORDS, MEDIA GROUP | VEXILLA REG. DBA<br>
+        DESIGNED FOR AUTONOMY | ENGINEERED FOR HARMONY<br>
+        ALL RIGHTS RESERVED
     </footer>
 
 </body>
