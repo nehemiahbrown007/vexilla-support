@@ -1,182 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Vexilla | Autonomous AI IT Support</title>
-    <meta name="description" content="Vexilla is the world's first self-healing IT infrastructure for Enterprise and Home users.">
-    
-    <style>
-        :root {
-            --bg-black: #000000;
-            --card-bg: #0a0a0a;
-            --vex-blue: #007bff;
-            --vex-cyan: #00f2fe;
-            --text-main: #f8f9fa;
-            --text-dim: #a0a0a0;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
+<style>
+    .detailed-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 80px 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+    .feature-list {
+        list-style: none;
+        margin: 20px 0;
+        padding: 0;
+    }
+
+    .feature-list li {
+        margin-bottom: 12px;
+        padding-left: 30px;
+        position: relative;
+        color: var(--text-main);
+        font-size: 1.1rem;
+    }
+
+    .feature-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--vex-cyan);
+        font-weight: bold;
+    }
+
+    .enterprise-section { border-top: 1px solid #222; padding-top: 80px; }
+    .homebase-section { border-top: 1px solid #222; padding-top: 80px; }
+    
+    .section-tag {
+        color: var(--vex-blue);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 0.9rem;
+    }
+</style>
+
+<div class="detailed-grid">
+    <section id="enterprise" class="enterprise-section">
+        <span class="section-tag">For Organizations</span>
+        <h2 style="font-size: 2.5rem; margin: 15px 0;">Vexilla Enterprise: The Autonomous SRE</h2>
+        <p style="font-size: 1.2rem; color: var(--text-dim);">Replace reactive helpdesks with a self-healing infrastructure that never sleeps.</p>
         
-        body {
-            background-color: var(--bg-black);
-            color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
+        <ul class="feature-list">
+            <li><strong>Silent Remediation:</strong> AI detects and fixes OS-level errors, registry bloat, and driver conflicts without user interruption.</li>
+            <li><strong>Predictive Supply Chain:</strong> Monitors hardware health (S.M.A.R.T, Battery, Thermal) and automatically initiates part-ordering before failure occurs.</li>
+            <li><strong>Immutable Compliance:</strong> Automatically generates real-time audit logs and security posture reports for SOC 2 and HIPAA.</li>
+            <li><strong>Global Fleet Command:</strong> Deploy across 10,000+ endpoints with a single administrator overseeing AI-resolved ticket streams.</li>
+        </ul>
+        <a href="#" class="btn btn-primary" style="width: auto;">Request Enterprise Demo</a>
+    </section>
 
-        /* NAVIGATION BAR */
-        nav {
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #111;
-        }
-
-        .nav-logo-text { font-weight: 800; letter-spacing: 2px; color: var(--vex-blue); }
-
-        /* HERO SECTION */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 85vh;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .hero-logo {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            margin-bottom: 40px;
-            filter: drop-shadow(0 0 20px rgba(0, 123, 255, 0.2));
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(to bottom, #ffffff, #888888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-dim);
-            max-width: 700px;
-            margin-bottom: 50px;
-        }
-
-        /* THE CHOICE CARDS */
-        .choice-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 1100px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid #1a1a1a;
-            padding: 50px;
-            border-radius: 20px;
-            text-align: left;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            border-color: var(--vex-blue);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .card h2 { font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
-        .card p { font-size: 1rem; color: var(--text-dim); margin-bottom: 35px; min-height: 60px; }
-
-        .btn {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-            padding: 15px;
-            border-radius: 10px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .btn-primary { background: var(--vex-blue); color: #fff; }
-        .btn-primary:hover { background: #0056b3; }
-
-        .btn-outline { border: 1px solid #333; color: #fff; }
-        .btn-outline:hover { border-color: var(--vex-cyan); color: var(--vex-cyan); }
-
-        /* FOOTER / STATUS */
-        .footer {
-            padding: 40px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #444;
-        }
-
-        .status-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #111;
-            padding: 5px 15px;
-            border-radius: 50px;
-            border: 1px solid #222;
-        }
-
-        .dot { width: 8px; height: 8px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; }
-
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.2rem; }
-            .card { padding: 30px; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="nav-logo-text">VEXILLA</div>
-        <div class="status-pill"><div class="dot"></div> Core AI Active</div>
-    </nav>
-
-    <main class="hero">
-        <img src="vexilla%20Logo.png" alt="Vexilla Autonomous AI Support Logo" class="hero-logo">
-
-        <h1>One Admin. Zero Downtime.</h1>
-        <p>The first autonomous site reliability engine for your business and home. Predicting failures, fixing errors, and securing your network in real-time.</p>
-
-        <div class="choice-container">
-            <div class="card">
-                <h2>Enterprise</h2>
-                <p>Full-fleet management for IT departments. Silent AI fixes, hardware ordering, and compliance logs.</p>
-                <a href="#" class="btn btn-primary">Secure My Business</a>
-            </div>
-
-            <div class="card">
-                <h2>HomeBase</h2>
-                <p>Your personal AI digital handyman. One-click optimizations for families and remote professionals.</p>
-                <a href="#" class="btn btn-outline">Protect My Home</a>
-            </div>
-        </div>
-    </main>
-
-    <footer class="footer">
-        &copy; 2026 Global Citizen Joe, LLC. All rights reserved. Vexilla is a registered DBA.
-    </footer>
-
-</body>
-</html>
+    <section id="homebase" class="homebase-section">
+        <span class="section-tag">For Individuals</span>
+        <h2 style="font-size: 2.5rem; margin: 15px 0;">Vexilla HomeBase: Your Digital Handyman</h2>
+        <p style="font-size: 1.2rem; color: var(--text-dim);">Enterprise-grade protection simplified for the modern remote professional and family.</p>
+        
+        <ul class="feature-list">
+            <li><strong>One-Click Optimization:</strong> No technical jargon. One button to fix slow boot times, network lag, and software crashes.</li>
+            <li><strong>Privacy-First Shield:</strong> AI monitors for unauthorized camera/mic access and dark-web credential leaks in real-time.</li>
+            <li><strong>Remote Family Support:</strong> Manage and secure parents' or children's devices from a single, simple mobile app.</li>
+            <li><strong>Hardware Longevity:</strong> AI-guided maintenance to extend the physical lifespan of your expensive PC or Mac.</li>
+        </ul>
+        <a href="#" class="btn btn-outline" style="width: auto;">Get HomeBase Protection</a>
+    </section>
+</div>
