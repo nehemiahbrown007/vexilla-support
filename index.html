@@ -257,6 +257,42 @@
         .stat-card h5 { color: var(--vex-cyan); font-size: 2.2rem; margin-bottom: 5px; font-weight: 800; }
         .stat-card p { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; }
 
+        /* HOMEBASE DEEP DIVE */
+        .homebase-detail {
+            max-width: 1200px;
+            margin: 100px auto 150px;
+            padding: 80px 24px;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 242, 254, 0.03) 100%);
+            border-radius: 40px;
+            scroll-margin-top: 50px;
+        }
+
+        .home-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid var(--vex-cyan);
+        }
+
+        .feature-item h4 { color: #fff; font-size: 1.3rem; margin-bottom: 8px; }
+        .feature-item p { color: var(--text-dim); font-size: 0.95rem; }
+
+        .home-visual {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(0, 242, 254, 0.05);
+        }
+
         /* FAQ */
         .faq-section { max-width: 900px; margin: 0 auto 150px; padding: 0 24px; }
         .faq-item {
@@ -280,7 +316,7 @@
         }
 
         @media (max-width: 992px) {
-            .impact-section { grid-template-columns: 1fr; text-align: center; }
+            .impact-section, .home-grid { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
 </head>
@@ -313,7 +349,7 @@
                 <h2>HomeBase</h2>
                 <p>Enterprise-grade stability for the remote workforce and modern families. Total health transparency and optimization.</p>
             </div>
-            <button class="btn btn-outline" onclick="alert('HomeBase Waitlist Opening Soon!')">Protect My Home</button>
+            <a href="#homebase-deep-dive" class="btn btn-outline">Protect My Home</a>
         </div>
     </div>
 
@@ -330,7 +366,7 @@
         <div class="detail-grid">
             <div class="detail-item">
                 <h3>Autonomous SRE Agents</h3>
-                <p>Built on <strong>Rust</strong> for memory safety. Agents execute sub-millisecond remediations for registry drift and service failures without needing a cloud-connection for decision-making.</p>
+                <p>Built on <strong>Rust</strong> for memory safety. Agents execute sub-millisecond remediations for registry drift and service failures without needing cloud-connectivity for decision-making.</p>
             </div>
 
             <div class="detail-item">
@@ -356,7 +392,6 @@
         </div>
     </section>
 
-    
     <section class="impact-section">
         <div>
             <span class="tag">Security & ROI</span>
@@ -385,6 +420,45 @@
             <div class="stat-card">
                 <h5>$0</h5>
                 <p>L1 Support Cost</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="homebase-deep-dive" class="homebase-detail">
+        <div style="text-align: center;">
+            <span class="tag" style="color: var(--vex-cyan);">Consumer Intelligence</span>
+            <h2 style="font-size: 3rem; color: #fff;">Vexilla HomeBase</h2>
+            <p style="max-width: 700px; margin: 20px auto; color: var(--text-dim); font-size: 1.2rem;">
+                Professional-grade system stability, simplified for the modern home and remote professional. 
+            </p>
+        </div>
+
+        <div class="home-grid">
+            <div class="home-visual">
+                <h3 style="color: var(--vex-cyan); margin-bottom: 20px;">Live Health Score</h3>
+                <div style="font-size: 5rem; font-weight: 900; color: #fff; margin-bottom: 10px;">98</div>
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--vex-cyan); font-size: 0.8rem;">Optimal System State</p>
+                <div style="margin-top: 30px; height: 8px; background: #222; border-radius: 10px; overflow: hidden;">
+                    <div style="width: 98%; height: 100%; background: var(--vex-cyan);"></div>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.85rem; color: var(--text-dim);">3 Silent Fixes Applied Today</p>
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>Privacy-First Diagnostics</h4>
+                    <p>Unlike standard remote tools, HomeBase never views your screen or files. It monitors <strong>System Metadata</strong> only—ensuring your family's privacy is mathematically guaranteed.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Thermal & Lifecycle Guard</h4>
+                    <p>HomeBase identifies background processes causing overheating, automatically throttling "rogue" apps to preserve battery and extend hardware life by years.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>The "Digital Handyman"</h4>
+                    <p>Automated cleanup of registry bloat and driver conflicts. Vexilla keeps your personal PC running at Day-1 speeds, permanently.</p>
+                </div>
+                <button class="btn btn-primary" onclick="alert('Joining HomeBase Waitlist...')">Join the Waitlist</button>
             </div>
         </div>
     </section>
